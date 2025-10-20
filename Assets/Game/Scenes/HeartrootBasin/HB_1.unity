@@ -1933,9 +1933,9 @@ MonoBehaviour:
   target: {fileID: 1656792973}
   smoothSpeed: 1
   offset: {x: 0, y: 0, z: 0}
-  useBounds: 0
-  minBounds: {x: 0, y: 0}
-  maxBounds: {x: 0, y: 5}
+  useBounds: 1
+  minBounds: {x: -50, y: 0}
+  maxBounds: {x: 50, y: 5}
 --- !u!1 &1656792971
 GameObject:
   m_ObjectHideFlags: 0
