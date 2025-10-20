@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerCamera
+public class PlayerCamera : MonoBehaviour
 {
     
 }
