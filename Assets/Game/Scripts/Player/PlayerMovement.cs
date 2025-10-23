@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Pixel Perfect Settings")]
+    public float pixelsPerUnit = 16f;
+
     [Header("General Movement")]
     public float acceleration = 20f;
     public float deceleration = 25f;
@@ -41,14 +44,12 @@ public class PlayerMovement : MonoBehaviour
     public float dashCooldown = 0.3f;
 
     [Header("Collision Settings")]
-    [Tooltip("Your existing ground/wall check transforms")]
     public Transform groundCheck;
     public Transform wallCheckLeft;
     public Transform wallCheckRight;
     public Vector2 groundBoxSize = new Vector2(0.6f, 0.075f);
     public Vector2 wallBoxSize = new Vector2(0.1f, 0.75f);
 
-    [Tooltip("Distance to check for collisions (should be small, like 0.05)")]
     public float collisionCheckDistance = 0.05f;
 
     public LayerMask tilemapLayer;
@@ -60,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
 
     // Velocity
-    private Vector2 velocity;
+    public Vector2 velocity;
 
     // Input
     private float moveInput;
@@ -92,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
         contactFilter.layerMask = tilemapLayer;
         contactFilter.useLayerMask = true;
         contactFilter.useTriggers = false;
+
+        SnapToPixelGrid();
     }
 
     void Update()
@@ -121,12 +124,27 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing)
         {
             MoveDash();
+            SnapToPixelGrid();
             return;
         }
 
         HandleMovement();
         ApplyGravity();
         MoveCharacter(velocity * Time.fixedDeltaTime);
+        SnapToPixelGrid();
+    }
+
+    // ---------------- PIXEL PERFECT ----------------
+
+    void SnapToPixelGrid()
+    {
+        Vector3 pos = transform.position;
+        float pixelSize = 1f / pixelsPerUnit;
+
+        pos.x = Mathf.Round(pos.x / pixelSize) * pixelSize;
+        pos.y = Mathf.Round(pos.y / pixelSize) * pixelSize;
+
+        transform.position = pos;
     }
 
     // ---------------- COLLISIONS ----------------
@@ -210,6 +228,10 @@ public class PlayerMovement : MonoBehaviour
         // Wall sliding
         if (isWallSliding)
         {
+            allowDoubleJump = true;
+            allowDash = true;
+            canDash = true;
+            canDoubleJump = true;
             if (velocity.y < -wallSlideSpeed)
                 velocity.y = -wallSlideSpeed;
         }
@@ -226,7 +248,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (hitCount > 0)
             {
-                // Hit something, move to contact point
+                // Hit something
                 moveAmount.x = (hitBuffer[0].distance - collisionCheckDistance) * Mathf.Sign(moveAmount.x);
                 velocity.x = 0;
             }
@@ -242,7 +264,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (hitCount > 0)
             {
-                // Hit something, move to contact point
+                // Hit something
                 moveAmount.y = (hitBuffer[0].distance - collisionCheckDistance) * Mathf.Sign(moveAmount.y);
                 velocity.y = 0;
             }
@@ -264,7 +286,7 @@ public class PlayerMovement : MonoBehaviour
             Jump();
             lastJumpPressedTime = -999f;
         }
-        else if (canBufferJump && allowDoubleJump && canDoubleJump && !isGrounded && !isWallSliding)
+        else if (canBufferJump && allowDoubleJump && canDoubleJump)
         {
             DoubleJump();
             lastJumpPressedTime = -999f;
@@ -346,18 +368,19 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
 
-        // End dash - keep some momentum
+        // End dash
         velocity.x = dir * maxSpeed * 1.5f;
         isDashing = false;
         canMove = true;
 
         yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
+        if (isGrounded || isWallSliding)
+            canDash = true;
     }
 
     void MoveDash()
     {
-        // Dash movement - horizontal only, no gravity
+        // Dash movement
         Vector2 moveAmount = new Vector2(velocity.x * Time.fixedDeltaTime, 0);
 
         if (Mathf.Abs(moveAmount.x) > 0.0001f)
