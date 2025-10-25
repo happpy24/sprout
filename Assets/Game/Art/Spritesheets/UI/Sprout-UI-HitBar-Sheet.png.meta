@@ -1,37 +1,10 @@
 fileFormatVersion: 2
-guid: d7eb2f2cf3d39c94bbee4c1f2ebe7711
+guid: 9a889ea07203fac409a928924033cc55
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5185063779985196816
-    second: player-Sheet 1_0
-  - first:
-      213: 1899939599500961517
-    second: player-Sheet 1_1
-  - first:
-      213: -8138856619164221437
-    second: player-Sheet 1_2
-  - first:
-      213: -209614479095279469
-    second: player-Sheet 1_3
-  - first:
-      213: 4858379463715045724
-    second: player-Sheet 1_4
-  - first:
-      213: 1811381925369555497
-    second: player-Sheet 1_5
-  - first:
-      213: 1696472536075887199
-    second: player-Sheet 1_6
-  - first:
-      213: -4540977030445414749
-    second: player-Sheet 1_7
-  - first:
-      213: -8427655696902065294
-    second: player-Sheet 1_8
-  - first:
-      213: 1891129672797081705
-    second: player-Sheet 1_9
+      213: -3510406876053025555
+    second: Sprout-UI-HitBar-Sheet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,233 +100,343 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player-Sheet 1_0
+      name: Sprout-UI-HitBar-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 136
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec45cf8b87884fc0800000000000000
+      internalID: -3510406876053025555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e9794f20c285e419fb688089368bfe
+      internalID: -1502240912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6b6f54fa7cc074f9c35ac4a9611da0
+      internalID: 528629055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9281cdd95c808a04787ba23dc7a8fda3
+      internalID: 550529111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 104
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc3b29b02ba19d4c8cf1611d4bcbe5f
+      internalID: -81311141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9750e8e2d37f6b24a91a634d74bf34e5
+      internalID: 932325629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 339bebbe5ce5bf1429cce3177685fbde
+      internalID: 52960703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61ece7e611808b14ea4b5f8840494913
+      internalID: -897240435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7780d779c5f054fa88143a231c6e8b
+      internalID: 1105041754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2191de31752734740a099e199beec4f1
+      internalID: 1252253532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 48
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9999461a5a4e396498f6b8e7d79f46d7
+      internalID: 1683439144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprout-UI-HitBar-Sheet_11
       rect:
         serializedVersion: 2
         x: 0
         y: 48
-        width: 16
-        height: 16
+        width: 48
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 01703c7490c05f740800000000000000
-      internalID: 5185063779985196816
+      spriteID: 9cf20ead9e959ce488731d9f58814cc7
+      internalID: 1497925969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-Sheet 1_1
+      name: Sprout-UI-HitBar-Sheet_12
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
+        x: 0
+        y: 40
+        width: 48
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: de6e3fadff0fd5a10800000000000000
-      internalID: 1899939599500961517
+      spriteID: d7decb0c7dfd3704c8ed1cf539ee5033
+      internalID: -2090197151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-Sheet 1_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 30041e0c609fc0f80800000000000000
-      internalID: -8138856619164221437
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-Sheet 1_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3905fb9edbc471df0800000000000000
-      internalID: -209614479095279469
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-Sheet 1_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c51c9c6a16e6c6340800000000000000
-      internalID: 4858379463715045724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-Sheet 1_5
+      name: Sprout-UI-HitBar-Sheet_13
       rect:
         serializedVersion: 2
         x: 0
         y: 32
-        width: 16
-        height: 16
+        width: 48
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 92a27369342532910800000000000000
-      internalID: 1811381925369555497
+      spriteID: 64eca2d0178fa2748b2675ffcbe8166b
+      internalID: 2070799219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-Sheet 1_6
+      name: Sprout-UI-HitBar-Sheet_14
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
+        x: 0
+        y: 24
+        width: 48
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f52620488c41b8710800000000000000
-      internalID: 1696472536075887199
+      spriteID: 05e044edbf8fd0647a1bbf2461304324
+      internalID: 166939198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-Sheet 1_7
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3a6c71f23753bf0c0800000000000000
-      internalID: -4540977030445414749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-Sheet 1_8
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 273fad89bc3fa0b80800000000000000
-      internalID: -8427655696902065294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-Sheet 1_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9605543fa64ae3a10800000000000000
-      internalID: 1891129672797081705
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-Sheet 1_10
+      name: Sprout-UI-HitBar-Sheet_15
       rect:
         serializedVersion: 2
         x: 0
         y: 16
-        width: 16
-        height: 16
+        width: 48
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -362,20 +445,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9188ab578426ce14397168bcf5286c8a
-      internalID: 931295397
+      spriteID: 5cf7a2a5852b5484082bd41c07424ea0
+      internalID: 73766833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-Sheet 1_11
+      name: Sprout-UI-HitBar-Sheet_16
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
+        x: 0
+        y: 8
+        width: 48
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,86 +467,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43e8d0e951dbb3b499afe8c355b8665a
-      internalID: 1243995073
+      spriteID: 82e0dcf435ebb4f419dee3cd5838e498
+      internalID: -1610574413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-Sheet 1_12
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9335714d6f21c7540a1b229b25b51c4c
-      internalID: -1199713095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-Sheet 1_13
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3dc69755ad27d4b48b9ef2ac75c31b50
-      internalID: -609931094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-Sheet 1_14
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 298e2adc6d940b94c98740b27eb7a24e
-      internalID: 556284215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-Sheet 1_15
+      name: Sprout-UI-HitBar-Sheet_17
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 48
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -472,30 +489,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0655189dd3b26f44db0958c6eab5ade5
-      internalID: 1772054938
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player-Sheet 1_16
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c5eb4544b9c7a44481bc3b9410e4e12
-      internalID: -369879840
+      spriteID: 97e13ef6ca8cbf740b134b9e71f484e4
+      internalID: -532460266
       vertices: []
       indices: 
       edges: []
@@ -504,7 +499,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 54341a3976dace440b097a5b90f27848
+    spriteID: 73961080cbbc0c04aa167f71530a4e63
     internalID: 0
     vertices: []
     indices: 
@@ -514,27 +509,26 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.25,"y":0.25},"pivotPixels":{"x":16.0,"y":16.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
-      - key: SpriteEditor.SliceOnImport
-        value: False
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":8.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      player-Sheet 1_0: 5185063779985196816
-      player-Sheet 1_1: 1899939599500961517
-      player-Sheet 1_10: 931295397
-      player-Sheet 1_11: 1243995073
-      player-Sheet 1_12: -1199713095
-      player-Sheet 1_13: -609931094
-      player-Sheet 1_14: 556284215
-      player-Sheet 1_15: 1772054938
-      player-Sheet 1_16: -369879840
-      player-Sheet 1_2: -8138856619164221437
-      player-Sheet 1_3: -209614479095279469
-      player-Sheet 1_4: 4858379463715045724
-      player-Sheet 1_5: 1811381925369555497
-      player-Sheet 1_6: 1696472536075887199
-      player-Sheet 1_7: -4540977030445414749
-      player-Sheet 1_8: -8427655696902065294
-      player-Sheet 1_9: 1891129672797081705
+      Sprout-UI-HitBar-Sheet_0: -3510406876053025555
+      Sprout-UI-HitBar-Sheet_1: -1502240912
+      Sprout-UI-HitBar-Sheet_10: 1683439144
+      Sprout-UI-HitBar-Sheet_11: 1497925969
+      Sprout-UI-HitBar-Sheet_12: -2090197151
+      Sprout-UI-HitBar-Sheet_13: 2070799219
+      Sprout-UI-HitBar-Sheet_14: 166939198
+      Sprout-UI-HitBar-Sheet_15: 73766833
+      Sprout-UI-HitBar-Sheet_16: -1610574413
+      Sprout-UI-HitBar-Sheet_17: -532460266
+      Sprout-UI-HitBar-Sheet_2: 528629055
+      Sprout-UI-HitBar-Sheet_3: 550529111
+      Sprout-UI-HitBar-Sheet_4: -81311141
+      Sprout-UI-HitBar-Sheet_5: 932325629
+      Sprout-UI-HitBar-Sheet_6: 52960703
+      Sprout-UI-HitBar-Sheet_7: -897240435
+      Sprout-UI-HitBar-Sheet_8: 1105041754
+      Sprout-UI-HitBar-Sheet_9: 1252253532
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

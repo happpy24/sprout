@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -77,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canDash = true;
 
     // Timers
+    private float fallTime;
     private float jumpTimeCounter;
     private float lastGroundedTime;
     private float lastJumpPressedTime;
@@ -85,9 +87,18 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
     private ContactFilter2D contactFilter;
 
+    // Audio Manager
+    private AudioManager audioManager;
+
+    // Animator
+    private Animator animator;
+
     void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        animator = GetComponent<Animator>();
 
         contactFilter = new ContactFilter2D();
         contactFilter.layerMask = tilemapLayer;
@@ -104,13 +115,18 @@ public class PlayerMovement : MonoBehaviour
         jumpHeld = Input.GetKey(KeyCode.Space);
         dashPressed = Input.GetKeyDown(KeyCode.LeftShift);
 
+        if (moveInput == 0 && !jumpHeld && !jumpPressed && !dashPressed && Mathf.Round(velocity.x) == 0 && Mathf.Round(velocity.y) == 0)
+        {
+            animator.ResetTrigger("Walking");
+            animator.SetTrigger("Idle");
+        }
+
         CheckCollisions();
 
         if (isGrounded)
         {
             lastGroundedTime = Time.time;
             canDoubleJump = true;
-            canDash = true;
         }
 
         if (jumpPressed) lastJumpPressedTime = Time.time;
@@ -192,6 +208,9 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && Mathf.Abs(velocity.x) > maxSpeed)
             velocity.x = Mathf.Sign(velocity.x) * maxSpeed;
 
+        if (Mathf.Abs(velocity.x) != 0 && isGrounded && !jumpHeld && !isDashing)
+            animator.SetTrigger("Walking");
+
         // Flip sprite
         if (moveInput != 0)
             transform.localScale = new Vector3(Mathf.Sign(moveInput), 1, 1);
@@ -202,6 +221,7 @@ public class PlayerMovement : MonoBehaviour
     void ApplyGravity()
     {
         float gravityToApply = gravity;
+
 
         // Jump gravity for slight floatiness
         if (velocity.y > 0 && jumpHeld)
@@ -217,8 +237,24 @@ public class PlayerMovement : MonoBehaviour
         else if (velocity.y < 0)
         {
             gravityToApply = gravity * fallGravityMultiplier;
+            if (!isWallSliding)
+            {
+                fallTime += Time.deltaTime;
+                animator.SetTrigger("Falling");
+            }
         }
+        
+        if (velocity.y >= 0)
+        {
+            if (fallTime > 0.5)
+            {
+                animator.SetTrigger("Land");
+            }
+            fallTime = 0;
+        }
+            
 
+        Debug.Log(fallTime);
         velocity.y -= gravityToApply * Time.fixedDeltaTime;
 
         // Clamp fall speed
@@ -228,10 +264,9 @@ public class PlayerMovement : MonoBehaviour
         // Wall sliding
         if (isWallSliding)
         {
-            allowDoubleJump = true;
-            allowDash = true;
-            canDash = true;
             canDoubleJump = true;
+            animator.SetTrigger("WallSlide");
+
             if (velocity.y < -wallSlideSpeed)
                 velocity.y = -wallSlideSpeed;
         }
@@ -309,6 +344,9 @@ public class PlayerMovement : MonoBehaviour
         if (isWallSliding)
         {
             // Wall jump
+            animator.ResetTrigger("Idle");
+            animator.ResetTrigger("Walking");
+            animator.SetTrigger("WallJump");
             velocity.x = -wallDir * wallJumpHorizontalForce;
             velocity.y = wallJumpVerticalForce;
 
@@ -320,6 +358,9 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             // Normal jump
+            animator.ResetTrigger("Idle");
+            animator.ResetTrigger("Walking");
+            animator.SetTrigger("Jump");
             velocity.y = jumpForce;
         }
 
@@ -329,6 +370,9 @@ public class PlayerMovement : MonoBehaviour
 
     void DoubleJump()
     {
+        animator.ResetTrigger("Idle");
+        animator.ResetTrigger("Walking");
+        animator.SetTrigger("Jump");
         canDoubleJump = false;
         velocity.y = jumpForce;
         isJumping = true;
@@ -361,6 +405,9 @@ public class PlayerMovement : MonoBehaviour
         float dir = moveInput != 0 ? Mathf.Sign(moveInput) : transform.localScale.x;
         velocity = new Vector2(dir * dashSpeed, 0);
 
+        audioManager.PlaySFX(audioManager.dash);
+        animator.SetTrigger("Dash");
+
         float dashTimer = 0f;
         while (dashTimer < dashDuration)
         {
@@ -373,9 +420,12 @@ public class PlayerMovement : MonoBehaviour
         isDashing = false;
         canMove = true;
 
+        // Wait for cooldown, then restore dash if conditions met
         yield return new WaitForSeconds(dashCooldown);
-        if (isGrounded || isWallSliding)
-            canDash = true;
+
+        yield return new WaitUntil(() => isGrounded || isTouchingWall);
+
+        canDash = true;
     }
 
     void MoveDash()

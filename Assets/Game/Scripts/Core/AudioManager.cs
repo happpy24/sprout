@@ -1,6 +1,6 @@
-using Unity.VisualScripting;
+using System.Collections;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem.Layouts;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
@@ -32,19 +32,190 @@ public class AudioManager : MonoBehaviour
     public AudioClip playerHit;
     public AudioClip itemReceived;
 
-    private void Start()
+    [Header("Fade Settings")]
+    public float fadeDuration = 2f;
+    [Range(0f, 1f)]
+    public float musicVolume = 0.5f;
+
+    private string currentScenePrefix = "";
+    private Coroutine fadeCoroutine;
+    private AudioSource tempFadeSource;
+
+    void Awake()
     {
+        // Check for duplicates
+        AudioManager[] managers = FindObjectsByType<AudioManager>(FindObjectsSortMode.None);
+        if (managers.Length > 1)
+        {
+            Debug.Log("Duplicate AudioManager found, destroying this instance");
+            Destroy(gameObject);
+            return;
+        }
+
         DontDestroyOnLoad(gameObject);
-        musicSource.Play();
-        musicSource.loop = true;
+
+        // Subscribe to scene loaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        Debug.Log("AudioManager initialized");
     }
 
-    private void Update()
+    void Start()
+    {
+        // Ensure music source has correct settings
+        if (musicSource != null)
+        {
+            musicSource.loop = true;
+            musicSource.volume = musicVolume;
+        }
+        else
+        {
+            Debug.LogError("Music Source is not assigned in AudioManager!");
+            return;
+        }
+
+        // Set initial music based on current scene
+        UpdateMusicForCurrentScene();
+    }
+
+    void OnDestroy()
+    {
+        // Unsubscribe from scene loaded event
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log($"Scene loaded: {scene.name}");
+        UpdateMusicForScene(scene);
+    }
+
+    private void UpdateMusicForCurrentScene()
     {
         Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name.Substring(0,2) == "HB")
+        UpdateMusicForScene(currentScene);
+    }
+
+    private void UpdateMusicForScene(Scene scene)
+    {
+        string sceneName = scene.name;
+
+        Debug.Log($"Updating music for scene: {sceneName}");
+
+        string scenePrefix = sceneName.Substring(0, 2);
+        Debug.Log($"Scene prefix: {scenePrefix}, Current prefix: {currentScenePrefix}");
+
+        // If scene prefix hasn't changed, don't do anything
+        if (scenePrefix == currentScenePrefix && musicSource.isPlaying)
         {
-            musicSource.clip = heartrootBasin;
+            Debug.Log("Scene prefix unchanged and music is playing, skipping");
+            return;
         }
+
+        currentScenePrefix = scenePrefix;
+
+        // Determine which music to play
+        AudioClip newClip = GetMusicForScenePrefix(scenePrefix);
+
+        if (newClip == null)
+        {
+            Debug.LogWarning($"No music clip assigned for scene prefix: {scenePrefix}");
+            return;
+        }
+
+        Debug.Log($"New music clip: {newClip.name}");
+
+        if (newClip != musicSource.clip || !musicSource.isPlaying)
+        {
+            // Stop any existing fade and clean up temp source
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+                if (tempFadeSource != null)
+                {
+                    Destroy(tempFadeSource);
+                    tempFadeSource = null;
+                }
+            }
+
+            // If no music is playing, start immediately without fade
+            if (!musicSource.isPlaying)
+            {
+                Debug.Log("No music currently playing, starting immediately");
+                musicSource.clip = newClip;
+                musicSource.volume = musicVolume;
+                musicSource.Play();
+            }
+            else
+            {
+                Debug.Log("Crossfading to new music");
+                fadeCoroutine = StartCoroutine(CrossfadeMusic(newClip));
+            }
+        }
+    }
+
+    private AudioClip GetMusicForScenePrefix(string prefix)
+    {
+        switch (prefix)
+        {
+            case "HB":
+                return heartrootBasin;
+            case "VW":
+                return vineWoods;
+            case "HR":
+                return hollowgroveRidge;
+            case "MM":
+                return mainMenu;
+            case "FR":
+                return fountainRestored;
+            case "BF":
+                return bossFight;
+            default:
+                Debug.LogWarning($"Unknown scene prefix: {prefix}");
+                return null;
+        }
+    }
+
+    private IEnumerator CrossfadeMusic(AudioClip newClip)
+    {
+        // Create a temporary AudioSource for the old music
+        tempFadeSource = gameObject.AddComponent<AudioSource>();
+        tempFadeSource.clip = musicSource.clip;
+        tempFadeSource.volume = musicSource.volume;
+        tempFadeSource.time = musicSource.time;
+        tempFadeSource.loop = false;
+        tempFadeSource.Play();
+
+        float startVolume = musicSource.volume;
+
+        // Start new music immediately
+        musicSource.clip = newClip;
+        musicSource.volume = 0f;
+        musicSource.Play();
+        musicSource.loop = true;
+
+        // Crossfade: fade out old, fade in new simultaneously
+        float elapsed = 0f;
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / fadeDuration;
+
+            tempFadeSource.volume = Mathf.Lerp(startVolume, 0f, t);
+            musicSource.volume = Mathf.Lerp(0f, musicVolume, t);
+
+            yield return null;
+        }
+
+        // Clean up
+        musicSource.volume = musicVolume;
+        Destroy(tempFadeSource);
+        tempFadeSource = null;
+        fadeCoroutine = null;
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        SFXSource.PlayOneShot(clip);
     }
 }
