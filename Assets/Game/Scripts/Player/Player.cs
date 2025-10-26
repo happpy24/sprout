@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     public string checkpointRoom = "HB_1";
     public float checkpointID = 0;
 
+    public LayerMask damageableLayer;
+
     // Audio Manager
     private AudioManager audioManager;
 
@@ -185,5 +187,23 @@ public class Player : MonoBehaviour
         playerMovement.playerDead = false;
 
         yield return null;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        CheckDamageableCollision(collision.collider);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        CheckDamageableCollision(other);
+    }
+
+    // check damage method
+    private void CheckDamageableCollision(Collider2D col)
+    {
+        if (((1 << col.gameObject.layer) & damageableLayer) != 0)
+        {
+            // when colliding with a enemy on damage layer ? do 1 HP damage
+            doDamage = true;
+        }
     }
 }
