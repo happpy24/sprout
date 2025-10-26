@@ -64,6 +64,8 @@ public class PlayerMovement : MonoBehaviour
     // Velocity
     public Vector2 velocity;
 
+    public bool playerDead;
+
     // Input
     private float moveInput;
     private bool jumpPressed;
@@ -93,12 +95,16 @@ public class PlayerMovement : MonoBehaviour
     // Animator
     private Animator animator;
 
+    // Hud Manager
+    private HudManager hudManager;
+
     void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
 
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         animator = GetComponent<Animator>();
+        hudManager = GameObject.FindGameObjectWithTag("HudManager").GetComponent<HudManager>();
 
         contactFilter = new ContactFilter2D();
         contactFilter.layerMask = tilemapLayer;
@@ -106,14 +112,28 @@ public class PlayerMovement : MonoBehaviour
         contactFilter.useTriggers = false;
 
         SnapToPixelGrid();
+
+        if (!allowDash)
+        {
+            hudManager.DashIndicator(false);
+        }
+
+        if (!allowDoubleJump)
+        {
+            hudManager.DoubleJumpIndicator(false);
+        }
     }
 
     void Update()
     {
-        moveInput = Input.GetAxisRaw("Horizontal");
-        jumpPressed = Input.GetKeyDown(KeyCode.Space);
-        jumpHeld = Input.GetKey(KeyCode.Space);
-        dashPressed = Input.GetKeyDown(KeyCode.LeftShift);
+        if (!playerDead)
+        {
+            moveInput = Input.GetAxisRaw("Horizontal");
+            jumpPressed = Input.GetKeyDown(KeyCode.Space);
+            jumpHeld = Input.GetKey(KeyCode.Space);
+            dashPressed = Input.GetKeyDown(KeyCode.LeftShift);
+        }
+        
 
         if (moveInput == 0 && !jumpHeld && !jumpPressed && !dashPressed && Mathf.Round(velocity.x) == 0 && Mathf.Round(velocity.y) == 0)
         {
@@ -126,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded)
         {
             lastGroundedTime = Time.time;
+            hudManager.DoubleJumpIndicator(true);
             canDoubleJump = true;
         }
 
@@ -253,8 +274,6 @@ public class PlayerMovement : MonoBehaviour
             fallTime = 0;
         }
             
-
-        Debug.Log(fallTime);
         velocity.y -= gravityToApply * Time.fixedDeltaTime;
 
         // Clamp fall speed
@@ -265,6 +284,7 @@ public class PlayerMovement : MonoBehaviour
         if (isWallSliding)
         {
             canDoubleJump = true;
+            hudManager.DoubleJumpIndicator(true);
             animator.SetTrigger("WallSlide");
 
             if (velocity.y < -wallSlideSpeed)
@@ -370,6 +390,7 @@ public class PlayerMovement : MonoBehaviour
 
     void DoubleJump()
     {
+        hudManager.DoubleJumpIndicator(false);
         animator.ResetTrigger("Idle");
         animator.ResetTrigger("Walking");
         animator.SetTrigger("Jump");
@@ -400,6 +421,7 @@ public class PlayerMovement : MonoBehaviour
         canDash = false;
         isDashing = true;
         canMove = false;
+        hudManager.DashIndicator(false);
 
         // Determine dash direction
         float dir = moveInput != 0 ? Mathf.Sign(moveInput) : transform.localScale.x;
@@ -425,6 +447,7 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitUntil(() => isGrounded || isTouchingWall);
 
+        hudManager.DashIndicator(true);
         canDash = true;
     }
 

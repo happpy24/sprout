@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Audio
+  - HudManager
+  - DeathScreen
   layers:
   - Default
   - TransparentFX
@@ -39,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ShadowCast
+    uniqueID: 2584717233
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

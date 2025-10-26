@@ -45,6 +45,11 @@ public class SceneLoader : MonoBehaviour
         {
             Debug.LogError("SceneLoader requires a BoxCollider2D component!");
         }
+
+        if (!player)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     private void Update()

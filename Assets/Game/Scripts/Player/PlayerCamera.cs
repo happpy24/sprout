@@ -115,7 +115,7 @@ public class PlayerCamera : MonoBehaviour
         if (useCameraBounds)
         {
             // Calculate camera viewport size
-            float halfHeight = 5f;
+            float halfHeight = 5.55f;
             float halfWidth = halfHeight * (16f / 9f);
 
             // Clamp camera center so edges don't go outside bounds

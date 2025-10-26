@@ -36,6 +36,8 @@ public class AudioManager : MonoBehaviour
     public float fadeDuration = 2f;
     [Range(0f, 1f)]
     public float musicVolume = 0.5f;
+    [Range(0f, 1f)]
+    public float sfxVolume = 0.5f;
 
     private string currentScenePrefix = "";
     private Coroutine fadeCoroutine;
@@ -43,21 +45,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        // Check for duplicates
-        AudioManager[] managers = FindObjectsByType<AudioManager>(FindObjectsSortMode.None);
-        if (managers.Length > 1)
-        {
-            Debug.Log("Duplicate AudioManager found, destroying this instance");
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
-
-        // Subscribe to scene loaded event
         SceneManager.sceneLoaded += OnSceneLoaded;
-
-        Debug.Log("AudioManager initialized");
     }
 
     void Start()
@@ -86,7 +74,6 @@ public class AudioManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"Scene loaded: {scene.name}");
         UpdateMusicForScene(scene);
     }
 
@@ -100,15 +87,11 @@ public class AudioManager : MonoBehaviour
     {
         string sceneName = scene.name;
 
-        Debug.Log($"Updating music for scene: {sceneName}");
-
         string scenePrefix = sceneName.Substring(0, 2);
-        Debug.Log($"Scene prefix: {scenePrefix}, Current prefix: {currentScenePrefix}");
 
         // If scene prefix hasn't changed, don't do anything
         if (scenePrefix == currentScenePrefix && musicSource.isPlaying)
         {
-            Debug.Log("Scene prefix unchanged and music is playing, skipping");
             return;
         }
 
@@ -119,11 +102,8 @@ public class AudioManager : MonoBehaviour
 
         if (newClip == null)
         {
-            Debug.LogWarning($"No music clip assigned for scene prefix: {scenePrefix}");
             return;
         }
-
-        Debug.Log($"New music clip: {newClip.name}");
 
         if (newClip != musicSource.clip || !musicSource.isPlaying)
         {
@@ -141,14 +121,12 @@ public class AudioManager : MonoBehaviour
             // If no music is playing, start immediately without fade
             if (!musicSource.isPlaying)
             {
-                Debug.Log("No music currently playing, starting immediately");
                 musicSource.clip = newClip;
                 musicSource.volume = musicVolume;
                 musicSource.Play();
             }
             else
             {
-                Debug.Log("Crossfading to new music");
                 fadeCoroutine = StartCoroutine(CrossfadeMusic(newClip));
             }
         }
@@ -182,7 +160,6 @@ public class AudioManager : MonoBehaviour
         tempFadeSource = gameObject.AddComponent<AudioSource>();
         tempFadeSource.clip = musicSource.clip;
         tempFadeSource.volume = musicSource.volume;
-        tempFadeSource.time = musicSource.time;
         tempFadeSource.loop = false;
         tempFadeSource.Play();
 
@@ -216,6 +193,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(AudioClip clip)
     {
+        SFXSource.volume = sfxVolume;
         SFXSource.PlayOneShot(clip);
     }
 }
