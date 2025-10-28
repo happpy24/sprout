@@ -7,6 +7,9 @@ TagManager:
   - Audio
   - HudManager
   - DeathScreen
+  - CheckpointIndicator
+  - Vignette
+  - TitleCards
   layers:
   - Default
   - TransparentFX

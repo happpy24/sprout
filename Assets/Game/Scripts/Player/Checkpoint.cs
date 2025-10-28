@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,12 +11,15 @@ public class Checkpoint : MonoBehaviour
     public Vector2 boxSizeOffset = new Vector2(0f, 0f);
     public LayerMask playerLayer;
 
+    private TextMeshProUGUI checkpointText;
+
     private string currentScene;
     private bool hasTriggered;
     private Animator animator;
 
     void Start()
     {
+        checkpointText = GameObject.FindGameObjectWithTag("CheckpointIndicator").GetComponent<TextMeshProUGUI>();
         currentScene = SceneManager.GetActiveScene().name;
         animator = GetComponent<Animator>();
     }
@@ -25,15 +30,38 @@ public class Checkpoint : MonoBehaviour
         if (hit && !hasTriggered)
         {
             hasTriggered = true;
+            StartCoroutine(InitiateCheckpoint());
+        }
+    }
 
-            animator.SetTrigger("Checkpoint");
+    private IEnumerator InitiateCheckpoint()
+    {
+        animator.SetTrigger("Checkpoint");
 
-            Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            if (player != null)
-            {
-                player.checkpointRoom = currentScene;
-                player.checkpointID = checkpointID;
-            }
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        if (player != null)
+        {
+            player.checkpointRoom = currentScene;
+            player.checkpointID = checkpointID;
+        }
+
+        yield return FadeCheckpointText(0f, 1f, 0.5f);
+        yield return new WaitForSeconds(2f);
+        yield return FadeCheckpointText(1f, 0f, 0.5f);
+    }
+
+    private IEnumerator FadeCheckpointText(float startAlpha, float endAlpha, float duration)
+    {
+        Color color = checkpointText.color;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            color.a = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
+            checkpointText.color = color;
+            yield return null;
         }
     }
 

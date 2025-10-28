@@ -89,6 +89,9 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
     private ContactFilter2D contactFilter;
 
+    // Player
+    private Player player;
+
     // Audio Manager
     private AudioManager audioManager;
 
@@ -100,6 +103,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        player = GetComponent<Player>();
+
         boxCollider = GetComponent<BoxCollider2D>();
 
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -126,34 +131,41 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!playerDead)
+        if (player.IsKnockedBack())
         {
-            moveInput = Input.GetAxisRaw("Horizontal");
-            jumpPressed = Input.GetKeyDown(KeyCode.Space);
-            jumpHeld = Input.GetKey(KeyCode.Space);
-            dashPressed = Input.GetKeyDown(KeyCode.LeftShift);
+            velocity = player.GetKnockbackVelocity();
         }
-        
-
-        if (moveInput == 0 && !jumpHeld && !jumpPressed && !dashPressed && Mathf.Round(velocity.x) == 0 && Mathf.Round(velocity.y) == 0)
+        else
         {
-            animator.ResetTrigger("Walking");
-            animator.SetTrigger("Idle");
+            if (!playerDead)
+            {
+                moveInput = Input.GetAxisRaw("Horizontal");
+                jumpPressed = Input.GetKeyDown(KeyCode.Space);
+                jumpHeld = Input.GetKey(KeyCode.Space);
+                dashPressed = Input.GetKeyDown(KeyCode.LeftShift);
+            }
+
+
+            if (moveInput == 0 && !jumpHeld && !jumpPressed && !dashPressed && Mathf.Round(velocity.x) == 0 && Mathf.Round(velocity.y) == 0)
+            {
+                animator.ResetTrigger("Walking");
+                animator.SetTrigger("Idle");
+            }
+
+            CheckCollisions();
+
+            if (isGrounded)
+            {
+                lastGroundedTime = Time.time;
+                hudManager.DoubleJumpIndicator(true);
+                canDoubleJump = true;
+            }
+
+            if (jumpPressed) lastJumpPressedTime = Time.time;
+
+            HandleJump();
+            HandleDash();
         }
-
-        CheckCollisions();
-
-        if (isGrounded)
-        {
-            lastGroundedTime = Time.time;
-            hudManager.DoubleJumpIndicator(true);
-            canDoubleJump = true;
-        }
-
-        if (jumpPressed) lastJumpPressedTime = Time.time;
-
-        HandleJump();
-        HandleDash();
     }
 
     void FixedUpdate()

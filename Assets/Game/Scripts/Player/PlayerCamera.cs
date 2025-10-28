@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerCamera : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class PlayerCamera : MonoBehaviour
     private Camera cam;
     public Transform target;
 
+    // --- Screen Shake ---
+    private float shakeDuration = 0f;
+    private float shakeAmount = 0f;
+    private Vector3 shakeOffset = Vector3.zero;
+
     void Start()
     {
         cam = GetComponent<Camera>();
@@ -36,7 +42,7 @@ public class PlayerCamera : MonoBehaviour
         {
             Debug.LogError("PlayerCamera: No Camera component found!");
         }
-        
+
         if (FindObjectsByType<Player>(0).Length == 1)
             target = FindFirstObjectByType<Player>().transform;
     }
@@ -46,6 +52,17 @@ public class PlayerCamera : MonoBehaviour
         if (!target && (FindObjectsByType<Player>(0).Length == 1))
         {
             target = FindFirstObjectByType<Player>().transform;
+        }
+
+        // Handle shake timing
+        if (shakeDuration > 0)
+        {
+            shakeDuration -= Time.unscaledDeltaTime;
+            shakeOffset = Random.insideUnitCircle * shakeAmount;
+        }
+        else
+        {
+            shakeOffset = Vector3.zero;
         }
     }
 
@@ -111,14 +128,14 @@ public class PlayerCamera : MonoBehaviour
         // --- Apply Look Offset ---
         Vector3 finalPos = baseCameraPos + new Vector3(0f, currentLookOffset, 0f);
 
+        // --- Apply Shake Offset ---
+        finalPos += shakeOffset;
+
         // --- Apply Camera Bounds ---
         if (useCameraBounds)
         {
-            // Calculate camera viewport size
             float halfHeight = 5.55f;
             float halfWidth = halfHeight * (16f / 9f);
-
-            // Clamp camera center so edges don't go outside bounds
             finalPos.x = Mathf.Clamp(finalPos.x, leftBound + halfWidth, rightBound - halfWidth);
             finalPos.y = Mathf.Clamp(finalPos.y, bottomBound + halfHeight, topBound - halfHeight);
         }
@@ -130,14 +147,23 @@ public class PlayerCamera : MonoBehaviour
         transform.position = new Vector3(finalPos.x, finalPos.y, transform.position.z);
     }
 
+    /// <summary>
+    /// Public method to trigger camera shake from other scripts.
+    /// </summary>
+    /// <param name="amount">The strength of the shake.</param>
+    /// <param name="duration">How long the shake lasts.</param>
+    public void Shake(float amount, float duration)
+    {
+        shakeAmount = amount;
+        shakeDuration = duration;
+    }
+
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
-        // Draw dead zone
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, new Vector3(boundX * 2, boundY * 2, 0));
 
-        // Draw camera bounds
         if (useCameraBounds)
         {
             Gizmos.color = Color.red;
