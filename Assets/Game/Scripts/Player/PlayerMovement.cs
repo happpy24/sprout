@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (!playerDead)
+            if (!playerDead) // Also generally used to stop player movement.
             {
                 moveInput = Input.GetAxisRaw("Horizontal");
                 jumpPressed = Input.GetKeyDown(KeyCode.Space);

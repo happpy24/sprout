@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 427625628638669693}
   - component: {fileID: 1331441632883041531}
   - component: {fileID: 2549621142178304633}
-  - component: {fileID: 2777922872051424547}
   - component: {fileID: 6358089631240241173}
   - component: {fileID: 4145883719715344632}
   - component: {fileID: 7374864835913289380}
@@ -179,18 +178,6 @@ MonoBehaviour:
   showDebugGizmos: 1
   velocity: {x: 0, y: 0}
   playerDead: 0
---- !u!114 &2777922872051424547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3662503495657006531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65d58436e6fa5914590581e0304262f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DDOL
 --- !u!61 &6358089631240241173
 BoxCollider2D:
   m_ObjectHideFlags: 0
