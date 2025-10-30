@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public float deceleration = 25f;
     public float maxSpeed = 5f;
     public float velocityPower = 0.9f;
+    public bool isFacingLeft = false;
+    public bool isFacingRight = true;
 
     [Header("Jumping")]
     public float jumpForce = 6.5f;
@@ -44,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuration = 0.15f;
     public float dashCooldown = 0.3f;
 
+    [Header("Audio")]
+    public float walkingSoundInterval = 0.3f; // Time between footstep sounds
+
     [Header("Collision Settings")]
     public Transform groundCheck;
     public Transform wallCheckLeft;
@@ -73,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
     private bool dashPressed;
 
     // State
-    private bool isGrounded;
+    public bool isGrounded;
     private bool isJumping;
     private bool canMove = true;
     private bool isDashing = false;
@@ -84,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpTimeCounter;
     private float lastGroundedTime;
     private float lastJumpPressedTime;
+    private float walkingSoundTimer = 0f;
 
     // Collision info
     private RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
@@ -100,6 +106,9 @@ public class PlayerMovement : MonoBehaviour
 
     // Hud Manager
     private HudManager hudManager;
+
+    // Prevent input processing on first frame (for opening sequence)
+    private bool initialized = false;
 
     void Awake()
     {
@@ -127,6 +136,18 @@ public class PlayerMovement : MonoBehaviour
         {
             hudManager.DoubleJumpIndicator(false);
         }
+
+        // Clear any input that might have been queued
+        jumpPressed = false;
+        jumpHeld = false;
+        dashPressed = false;
+        moveInput = 0f;
+    }
+
+    void Start()
+    {
+        // Mark as initialized after first frame
+        initialized = true;
     }
 
     void Update()
@@ -137,12 +158,21 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (!playerDead) // Also generally used to stop player movement.
+            // Only process input if initialized and not dead
+            if (!playerDead && initialized)
             {
                 moveInput = Input.GetAxisRaw("Horizontal");
                 jumpPressed = Input.GetKeyDown(KeyCode.Space);
                 jumpHeld = Input.GetKey(KeyCode.Space);
                 dashPressed = Input.GetKeyDown(KeyCode.LeftShift);
+            }
+            else
+            {
+                // Clear input when disabled
+                moveInput = 0f;
+                jumpPressed = false;
+                jumpHeld = false;
+                dashPressed = false;
             }
 
 
@@ -165,6 +195,7 @@ public class PlayerMovement : MonoBehaviour
 
             HandleJump();
             HandleDash();
+            HandleWalkingSound();
         }
     }
 
@@ -246,7 +277,59 @@ public class PlayerMovement : MonoBehaviour
 
         // Flip sprite
         if (moveInput != 0)
+        {
             transform.localScale = new Vector3(Mathf.Sign(moveInput), 1, 1);
+            if (moveInput > 0)
+            {
+                isFacingLeft = false;
+                isFacingRight = true;
+            }
+            else if (moveInput < 0)
+            {
+                isFacingRight = false;
+                isFacingLeft = true;
+            }
+        }
+    }
+
+    // ---------------- WALKING SOUND ----------------
+
+    void HandleWalkingSound()
+    {
+        // Only play walking sounds if grounded, moving, and not jumping/dashing
+        bool isWalking = isGrounded && Mathf.Abs(velocity.x) > 0.1f && !isJumping && !isDashing;
+
+        if (isWalking)
+        {
+            walkingSoundTimer -= Time.deltaTime;
+
+            if (walkingSoundTimer <= 0f)
+            {
+                PlayRandomWalkingSound();
+                walkingSoundTimer = walkingSoundInterval;
+            }
+        }
+        else
+        {
+            // Reset timer when not walking
+            walkingSoundTimer = 0f;
+        }
+    }
+
+    void PlayRandomWalkingSound()
+    {
+        if (audioManager == null) return;
+
+        // Randomly pick one of the 4 walking sounds
+        AudioClip walkingClip = Random.Range(0, 4) switch
+        {
+            0 => audioManager.walking1,
+            1 => audioManager.walking2,
+            2 => audioManager.walking3,
+            _ => audioManager.walking4
+        };
+
+        audioManager.PlaySFX(walkingClip, true);
     }
 
     // ---------------- GRAVITY ----------------
@@ -396,6 +479,12 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = jumpForce;
         }
 
+        // Play jump sound
+        if (audioManager != null)
+        {
+            audioManager.PlaySFX(audioManager.jump);
+        }
+
         isJumping = true;
         jumpTimeCounter = variableJumpTime;
     }
@@ -408,6 +497,13 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("Jump");
         canDoubleJump = false;
         velocity.y = jumpForce;
+        
+        // Play jump sound
+        if (audioManager != null)
+        {
+            audioManager.PlaySFX(audioManager.jump);
+        }
+
         isJumping = true;
         jumpTimeCounter = variableJumpTime;
     }
@@ -532,5 +628,18 @@ public class PlayerMovement : MonoBehaviour
                 Gizmos.DrawSphere(transform.position + Vector3.right * wallDir * 0.6f, 0.15f);
             }
         }
+    }
+
+    // ---------------- EXTERNAL FORCE ----------------
+
+    public void ApplyExternalForce(Vector2 force, float duration)
+    {
+        StartCoroutine(ExternalForceCoroutine(force, duration));
+    }
+
+    private IEnumerator ExternalForceCoroutine(Vector2 force, float duration)
+    {
+        velocity = force;
+        yield return new WaitForSeconds(duration);
     }
 }

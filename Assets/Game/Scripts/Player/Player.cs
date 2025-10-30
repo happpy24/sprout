@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -29,6 +30,10 @@ public class Player : MonoBehaviour
     public float invincibilityDuration = 1f;
     public float flashInterval = 0.1f;
 
+    [Header("Death Settings")]
+    public float deathMusicFadeOutDuration = 1.5f;
+    public float deathMusicFadeInDuration = 2f;
+
     [Header("Systems")]
     public LayerMask damageableLayer;
 
@@ -49,10 +54,11 @@ public class Player : MonoBehaviour
     private Animator animator;
     private HudManager hudManager;
     private GameObject deathScreen;
-    private PlayerMovement playerMovement;
+    public PlayerMovement playerMovement;
     private SpriteRenderer spriteRenderer;
     private Camera mainCamera;
     private Material spriteMaterial;
+    private SceneController sceneController;
 
     // Knockback Data
     private Vector2 lastDamageSourcePosition;
@@ -67,12 +73,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (!audioManager || !animator || !hudManager || !deathScreen || !playerMovement || !mainCamera)
+        if (!audioManager || !animator || !hudManager || !deathScreen || !playerMovement || !mainCamera || !sceneController)
         {
             CacheComponents();
         }
 
-        HandleInput();
         HandleHealthRestore();
         HandleDamage();
         HandleHPRestore();
@@ -94,19 +99,12 @@ public class Player : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         mainCamera = Camera.main;
+        sceneController = FindFirstObjectByType<SceneController>();
         originalTimeScale = Time.timeScale;
         originalSpriteColor = spriteRenderer.color;
 
         spriteMaterial = new Material(spriteRenderer.material);
         spriteRenderer.material = spriteMaterial;
-    }
-
-    private void HandleInput()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Attack();
-        }
     }
 
     private void HandleHealthRestore()
@@ -152,11 +150,6 @@ public class Player : MonoBehaviour
             playerDeathActivate = false;
             StartCoroutine(PlayerDeath());
         }
-    }
-
-    private void Attack()
-    {
-
     }
 
     private void GiveHPRestore()
@@ -276,31 +269,76 @@ public class Player : MonoBehaviour
 
     IEnumerator PlayerDeath()
     {
+        // Reset opening sequence flag in case we return to HB_4
+        OpeningSequence.ResetSequence();
+
+        // 1. Start fading out music
+        if (audioManager != null)
+        {
+            StartCoroutine(audioManager.FadeOutMusic(deathMusicFadeOutDuration));
+        }
+
+        // 2. Block player input but allow physics to continue (player will fall to ground)
         playerMovement.playerDead = true;
+
+        // 3. Wait until player is grounded
+        yield return new WaitUntil(() => playerMovement != null && 
+            (Physics2D.OverlapBox(playerMovement.groundCheck.position, playerMovement.groundBoxSize, 0, playerMovement.tilemapLayer) != null));
+
+        // 4. Stop all movement and block animations
+        playerMovement.enabled = false;
+
+        // 5. Play death animation (reset all triggers first)
+        animator.ResetTrigger("Idle");
+        animator.ResetTrigger("Walking");
+        animator.ResetTrigger("Falling");
+        animator.ResetTrigger("Hit");
+        animator.ResetTrigger("Jump");
+        animator.ResetTrigger("WallSlide");
+        animator.ResetTrigger("WallJump");
+        animator.ResetTrigger("Dash");
+        animator.ResetTrigger("Land");
         animator.SetTrigger("Death");
-
         yield return new WaitForSeconds(1f);
 
+        // 6. Show death screen UI
         yield return FadeDeathScreen(0f, 0.7f, 1.0f);
-
         yield return FadeDeathText(0f, 1f, 0.5f);
-
-        yield return new WaitForSeconds(1f);
-
+        yield return new WaitForSeconds(2f);
         yield return FadeDeathScreenAndText(0.7f, 1.0f, 1f, 0f, 0.5f);
 
-        yield return LoadCheckpointScene();
+        // 7. Unload ALL scenes and load checkpoint scene fresh
+        yield return UnloadAllScenesAndLoadCheckpoint();
 
+        // 8. Reset player state
         ResetPlayerState();
 
-        yield return new WaitForSeconds(2f);
+        // 9. Teleport to checkpoint position
+        TeleportToCheckpoint();
 
-        yield return FadeDeathScreen(1f, 0f, 2.5f);
+        // 10. Preload adjacent scenes from checkpoint room's SceneLoadTriggers
+        yield return PreloadAdjacentScenes();
 
-        // Reset animations and movement
-        animator.SetTrigger("Falling");
+        // 11. Fade in music for the checkpoint room
+        if (audioManager != null)
+        {
+            string checkpointPrefix = checkpointRoom.Length >= 2 ? checkpointRoom.Substring(0, 2) : checkpointRoom;
+            StartCoroutine(audioManager.FadeInMusicForPrefix(checkpointPrefix));
+        }
+
+        // 12. Reset animator to Idle state (clear all animation state)
+        animator.Rebind();
+        animator.Update(0f);
         animator.SetTrigger("Idle");
+        
+        // 13. Re-enable player movement
         playerMovement.playerDead = false;
+        playerMovement.enabled = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        // 14. Fade from black screen
+        yield return FadeDeathScreen(1f, 0f, 2.5f);
     }
 
     private IEnumerator FadeDeathScreen(float startAlpha, float endAlpha, float duration)
@@ -316,6 +354,9 @@ public class Player : MonoBehaviour
             deathImage.color = color;
             yield return null;
         }
+
+        color.a = endAlpha;
+        deathImage.color = color;
     }
 
     private IEnumerator FadeDeathText(float startAlpha, float endAlpha, float duration)
@@ -331,6 +372,9 @@ public class Player : MonoBehaviour
             deathText.color = color;
             yield return null;
         }
+
+        color.a = endAlpha;
+        deathText.color = color;
     }
 
     private IEnumerator FadeDeathScreenAndText(float screenStart, float screenEnd, float textStart, float textEnd, float duration)
@@ -350,22 +394,126 @@ public class Player : MonoBehaviour
             deathText.color = textColor;
             yield return null;
         }
+
+        screenColor.a = screenEnd;
+        textColor.a = textEnd;
+        deathImage.color = screenColor;
+        deathText.color = textColor;
     }
 
-    private IEnumerator LoadCheckpointScene()
+    private IEnumerator UnloadAllScenesAndLoadCheckpoint()
     {
-        string oldSceneName = SceneManager.GetActiveScene().name;
+        // Clear the SceneController's preloaded scenes cache
+        SceneController.ClearPreloadedScenes();
+        
+        // Get all currently loaded scenes BEFORE loading checkpoint
+        List<Scene> scenesToUnload = new List<Scene>();
+        
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.isLoaded && !string.IsNullOrEmpty(scene.name))
+            {
+                scenesToUnload.Add(scene);
+            }
+        }
 
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(checkpointRoom, LoadSceneMode.Additive);
-        yield return loadOperation;
+        // Load the checkpoint scene FIRST (so there's always an active scene)
+        Scene existingCheckpointScene = SceneManager.GetSceneByName(checkpointRoom);
+        
+        if (existingCheckpointScene.isLoaded)
+        {
+            // If checkpoint scene is already loaded, just activate it
+            SceneManager.SetActiveScene(existingCheckpointScene);
+        }
+        else
+        {
+            // Load checkpoint scene fresh
+            yield return SceneManager.LoadSceneAsync(checkpointRoom, LoadSceneMode.Additive);
+            
+            Scene checkpointScene = SceneManager.GetSceneByName(checkpointRoom);
+            SceneManager.SetActiveScene(checkpointScene);
+        }
 
-        Scene newScene = SceneManager.GetSceneByName(checkpointRoom);
-        SceneManager.SetActiveScene(newScene);
+        // Update SceneController's current scene tracking and add to preloaded scenes
+        SceneController.SetCurrentSceneName(checkpointRoom);
+        
+        yield return null;
 
-        AsyncOperation unloadOperation = SceneManager.UnloadSceneAsync(oldSceneName);
-        yield return unloadOperation;
+        // NOW unload all other scenes
+        foreach (Scene scene in scenesToUnload)
+        {
+            // Don't unload the checkpoint scene we just loaded/activated
+            if (scene.name != checkpointRoom && scene.isLoaded)
+            {
+                // Deactivate objects first
+                GameObject[] rootObjects = scene.GetRootGameObjects();
+                foreach (GameObject obj in rootObjects)
+                {
+                    if (obj != null)
+                    {
+                        obj.SetActive(false);
+                    }
+                }
+                
+                // Unload the scene
+                yield return SceneManager.UnloadSceneAsync(scene);
+            }
+        }
 
-        TeleportToCheckpoint();
+        // Reactivate all objects in checkpoint scene
+        Scene finalCheckpointScene = SceneManager.GetSceneByName(checkpointRoom);
+        GameObject[] checkpointObjects = finalCheckpointScene.GetRootGameObjects();
+        foreach (GameObject obj in checkpointObjects)
+        {
+            if (obj != null && !obj.activeSelf)
+            {
+                obj.SetActive(true);
+            }
+        }
+        
+        yield return null;
+    }
+
+    private IEnumerator PreloadAdjacentScenes()
+    {
+        if (sceneController == null) 
+        {
+            Debug.LogWarning("SceneController is null, cannot preload adjacent scenes.");
+            yield break;
+        }
+
+        // Wait multiple frames to ensure all scene unloading is completely finished
+        yield return null;
+        yield return null;
+
+        // Find all SceneLoadTriggers in the checkpoint scene
+        SceneLoadTrigger[] triggers = FindObjectsByType<SceneLoadTrigger>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        List<string> scenesToPreload = new List<string>();
+        
+        foreach (SceneLoadTrigger trigger in triggers)
+        {
+            // Only preload triggers in the active (checkpoint) scene
+            if (trigger.gameObject.scene.name == checkpointRoom && !string.IsNullOrEmpty(trigger.sceneName))
+            {
+                if (!scenesToPreload.Contains(trigger.sceneName))
+                {
+                    scenesToPreload.Add(trigger.sceneName);
+                }
+            }
+        }
+
+        Debug.Log($"Found {scenesToPreload.Count} scenes to preload from checkpoint room {checkpointRoom}");
+
+        // Preload each unique scene
+        foreach (string sceneName in scenesToPreload)
+        {
+            Debug.Log($"Preloading adjacent scene: {sceneName}");
+            yield return sceneController.PreloadSceneInBackground(sceneName);
+        }
+        
+        Debug.Log("Adjacent scene preloading complete.");
     }
 
     private void TeleportToCheckpoint()
@@ -376,9 +524,16 @@ public class Player : MonoBehaviour
         {
             if (checkpoint.checkpointID == checkpointID)
             {
-                transform.position = checkpoint.transform.position - new Vector3(1, 0, 0);
-                break;
+                // Position player slightly to the left of the checkpoint
+                transform.position = checkpoint.transform.position + new Vector3(-1f, 0f, 0f);
+                return;
             }
+        }
+
+        // Fallback: if no matching checkpoint found, just use the first one
+        if (checkpoints.Length > 0)
+        {
+            transform.position = checkpoints[0].transform.position + new Vector3(-1f, 0f, 0f);
         }
     }
 
@@ -387,6 +542,10 @@ public class Player : MonoBehaviour
         hp = maxHp;
         hpRestoreProgress = 0;
         playerDeathActivate = true;
+        isKnockedBack = false;
+        isInvincible = false;
+        knockbackVelocity = Vector2.zero;
+        
         hudManager.UpdateHealthUI(hp);
         hudManager.EmptyRefillBar();
     }

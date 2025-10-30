@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class VineCrawler : EnemyBase
+public class VineCrawler : MonoBehaviour, IEnemyMovement
 {
     [Header("Movement")]
     public float walkSpeed = 1f;
@@ -26,6 +26,8 @@ public class VineCrawler : EnemyBase
     private bool isStartingChase = false;
     private float loseSightTimer = 0f;
     private readonly Vector2 rayOriginOffset = Vector2.down * 0.25f;
+    private bool isBeingKnockedBack = false;
+    private EnemyBase enemyBase;
 
     void Start()
     {
@@ -33,11 +35,15 @@ public class VineCrawler : EnemyBase
         GameObject pObj = GameObject.FindGameObjectWithTag("Player");
         if (pObj) player = pObj.transform;
         animator = GetComponent<Animator>();
+        enemyBase = GetComponent<EnemyBase>();
     }
 
     void Update()
     {
         if (player == null) return;
+        
+        // Stop all logic if dead
+        if (enemyBase != null && enemyBase.isDead) return;
 
         if (isChasing)
         {
@@ -47,7 +53,6 @@ public class VineCrawler : EnemyBase
             if (PlayerInSightFacing() || PlayerInProximity())
             {
                 loseSightTimer = 0f;
-                FollowPlayer();
             }
             else
             {
@@ -59,8 +64,28 @@ public class VineCrawler : EnemyBase
         {
             if (PlayerInSightFacing() || PlayerInProximity())
                 StartCoroutine(BeginChase());
-            else
-                Patrol();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        // Stop all movement if dead
+        if (enemyBase != null && enemyBase.isDead)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        // Handle all velocity changes in FixedUpdate to prevent overriding knockback
+        if (isBeingKnockedBack) return;
+
+        if (isChasing)
+        {
+            FollowPlayer();
+        }
+        else if (!isStartingChase)
+        {
+            Patrol();
         }
     }
 
@@ -86,7 +111,13 @@ public class VineCrawler : EnemyBase
     private IEnumerator BeginChase()
     {
         isStartingChase = true;
-        rb.linearVelocity = Vector2.zero;
+        
+        // Don't set velocity to zero - let knockback play out if it exists
+        if (!isBeingKnockedBack)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+        
         if (animator) animator.SetTrigger("StartChase");
         yield return new WaitForSeconds(chaseStartDelay);
         isChasing = true;
@@ -99,12 +130,15 @@ public class VineCrawler : EnemyBase
         isChasing = false;
         loseSightTimer = 0f;
         if (animator) animator.SetTrigger("StopChase");
-        rb.linearVelocity = Vector2.zero;
+        
+        if (!isBeingKnockedBack)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     private void Patrol()
     {
-        if (isStartingChase || isChasing) return;
         float moveDir = facingRight ? 1f : -1f;
         rb.linearVelocity = new Vector2(moveDir * walkSpeed, rb.linearVelocity.y);
         RaycastHit2D groundHit = Physics2D.Raycast(groundCheck.position, Vector2.down, 0.2f, collisionLayer);
@@ -132,7 +166,24 @@ public class VineCrawler : EnemyBase
         Vector3 s = transform.localScale;
         s.x = Mathf.Abs(s.x) * (facingRight ? 1 : -1);
         transform.localScale = s;
-        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+        
+        if (!isBeingKnockedBack)
+        {
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+        }
+    }
+
+    // Implement IEnemyMovement interface
+    public void OnKnockbackStart()
+    {
+        isBeingKnockedBack = true;
+        StartCoroutine(KnockbackDuration());
+    }
+
+    private IEnumerator KnockbackDuration()
+    {
+        yield return new WaitForSeconds(0.2f); // Match EnemyBase invulnerability time
+        isBeingKnockedBack = false;
     }
 
     private void OnDrawGizmosSelected()

@@ -320,11 +320,11 @@ MonoBehaviour:
   walking2: {fileID: 8300000, guid: 1be87994aa3018f459ab0cf11741b334, type: 3}
   walking3: {fileID: 8300000, guid: 7f0a1fd109f08104d8a21c540d2c708d, type: 3}
   walking4: {fileID: 8300000, guid: bb9c8e8e0b8207043b5726e2ae208b56, type: 3}
-  attack: {fileID: 0}
+  attack: {fileID: 8300000, guid: fcd1dd70056193d4ca93df2c4e05550e, type: 3}
   jump: {fileID: 0}
   dash: {fileID: 8300000, guid: a523d40787065ce409186e94f0b0b667, type: 3}
   land: {fileID: 0}
-  enemyHit: {fileID: 0}
+  enemyHit: {fileID: 8300000, guid: fde4688ffee24324d85a632648ef8e73, type: 3}
   playerHit: {fileID: 8300000, guid: d0a2a01f4af3b4e4581184a4f43a0e45, type: 3}
   itemReceived: {fileID: 8300000, guid: 4f6cc235148bc9f47a8b0b04257fd3e3, type: 3}
   musicVolume: 0.5

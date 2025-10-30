@@ -139,6 +139,26 @@ public class AudioManager : MonoBehaviour
         musicSource.volume = musicVolume;
     }
 
+    public IEnumerator FadeOutVineWoodsIntro(float fadeTime)
+    {
+        // Wait 1 second before starting the fade (Fix 5)
+        yield return new WaitForSeconds(1.0f);
+
+        // Now fade out over the specified fadeTime (which should be 1s)
+        float startVolume = musicSource.volume;
+        float elapsed = 0f;
+
+        while (elapsed < fadeTime)
+        {
+            elapsed += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / fadeTime);
+            yield return null;
+        }
+
+        musicSource.Stop();
+        musicSource.volume = 0f;
+    }
+
     public IEnumerator FadeInVineWoodsIntro()
     {
         musicSource.clip = vineWoodsIntro;

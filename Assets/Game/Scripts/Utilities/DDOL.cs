@@ -1,40 +1,58 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Generic singleton script that ensures only one instance of the attached GameObject exists across scenes.
+/// Can be attached to any GameObject (Player, EssentialObjects, etc.).
+/// Each unique GameObject name will have its own singleton instance.
+/// </summary>
 public class DDOL : MonoBehaviour
 {
-    private static bool initialized;
+    // Dictionary to track instances by GameObject name
+    private static Dictionary<string, DDOL> instances = new Dictionary<string, DDOL>();
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    private static void PreSceneLoadCleanup()
-    {
-        var ddols = FindObjectsByType<DDOL>(FindObjectsSortMode.None);
-        for (int i = 0; i < ddols.Length; i++)
-        {
-            var obj = ddols[i];
-            var sameName = System.Array.FindAll(ddols, o => o.name == obj.name);
-            if (sameName.Length > 1)
-            {
-                // Destroy all but the first
-                for (int j = 1; j < sameName.Length; j++)
-                    DestroyImmediate(sameName[j].gameObject);
-            }
-        }
-    }
+    [Header("Configuration")]
+    public string instanceID = "";
+
+    private string instanceKey;
 
     void Awake()
     {
-        DDOL[] ddol = FindObjectsByType<DDOL>(FindObjectsSortMode.None);
-        
-        foreach (var obj in ddol)
-        {
-            if (obj != this && obj.name == name)
-            {
-                DestroyImmediate(gameObject);
-                return;
-            }
-        }
+        instanceKey = string.IsNullOrEmpty(instanceID) ? gameObject.name : instanceID;
 
-        DontDestroyOnLoad(gameObject);
+        if (!instances.ContainsKey(instanceKey))
+        {
+            instances[instanceKey] = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (instances.ContainsKey(instanceKey) && instances[instanceKey] == this)
+        {
+            instances.Remove(instanceKey);
+        }
+    }
+
+    /// <summary>
+    /// Optional: Get the singleton instance by key (useful for debugging or external access)
+    /// </summary>
+    public static DDOL GetInstance(string key)
+    {
+        return instances.ContainsKey(key) ? instances[key] : null;
+    }
+
+    /// <summary>
+    /// Optional: Check if a singleton instance exists for a given key
+    /// </summary>
+    public static bool HasInstance(string key)
+    {
+        return instances.ContainsKey(key);
     }
 }

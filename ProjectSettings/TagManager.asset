@@ -11,6 +11,8 @@ TagManager:
   - Vignette
   - TitleCards
   - TransitionEffect
+  - EssentialObjects
+  - IntroCards
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Collision
   - Player
   - Damageable
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -50,6 +52,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: MeleeWeapon
+    uniqueID: 4161790319
     locked: 0
   m_RenderingLayers:
   - Default

@@ -1,0 +1,1622 @@
+fileFormatVersion: 2
+guid: fc488c9c995fa664d81a67e4cb7fdfa7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5730199476619560992
+    second: heartrootbasin-spritesheet 1_0
+  - first:
+      213: -5172049176293559183
+    second: heartrootbasin-spritesheet 1_1
+  - first:
+      213: 3979513617692879195
+    second: heartrootbasin-spritesheet 1_2
+  - first:
+      213: -3072477984387959918
+    second: heartrootbasin-spritesheet 1_3
+  - first:
+      213: 8039836028257402856
+    second: heartrootbasin-spritesheet 1_4
+  - first:
+      213: -6622864938673080284
+    second: heartrootbasin-spritesheet 1_5
+  - first:
+      213: -1332291091715972404
+    second: heartrootbasin-spritesheet 1_6
+  - first:
+      213: -3487904813646111557
+    second: heartrootbasin-spritesheet 1_7
+  - first:
+      213: 8709611367096378018
+    second: heartrootbasin-spritesheet 1_8
+  - first:
+      213: 4905068537499331330
+    second: heartrootbasin-spritesheet 1_9
+  - first:
+      213: -6344471099126636177
+    second: heartrootbasin-spritesheet 1_10
+  - first:
+      213: 8132532753783285083
+    second: heartrootbasin-spritesheet 1_11
+  - first:
+      213: -9066365600654055622
+    second: heartrootbasin-spritesheet 1_12
+  - first:
+      213: 1386087106177797113
+    second: heartrootbasin-spritesheet 1_13
+  - first:
+      213: -8574337350248087132
+    second: heartrootbasin-spritesheet 1_14
+  - first:
+      213: 5303799432801423342
+    second: heartrootbasin-spritesheet 1_15
+  - first:
+      213: -8928389783189501481
+    second: heartrootbasin-spritesheet 1_16
+  - first:
+      213: -2627709034415889147
+    second: heartrootbasin-spritesheet 1_17
+  - first:
+      213: 5149623810634246793
+    second: heartrootbasin-spritesheet 1_18
+  - first:
+      213: 6635669343796659789
+    second: heartrootbasin-spritesheet 1_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3241206767b46234c84aba5e8a429a41
+      internalID: -760164459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_116
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 208
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49789c25b312ee04c93d44c5982b0765
+      internalID: -1660604438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_122
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 208
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d335c83eb1f051428d3bbf94f62db92
+      internalID: 225318133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_128
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 208
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f46818e190d451409e1acb822256c52
+      internalID: 480849461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_134
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 208
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799e88fa1b8b0c34db27112e55a683b6
+      internalID: -870497930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_140
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a192d1d02a88984cbea6e43df795c6d
+      internalID: 2081037913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_141
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 200
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1eb43d78dc2aca458b48a1d6aea20de
+      internalID: 1270254944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_142
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 200
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90bd4a16b3c460742a462c6ff3074533
+      internalID: -620627973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_143
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 200
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e63bfb1b350a8e343b14615a1be6a8e1
+      internalID: 201772603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_144
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 200
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd7a1218578add4188555054a8f0d8b
+      internalID: -1264741975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_145
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 200
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac4f77b8c54f0c947b90a5ebc9a3d40b
+      internalID: -1523320991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_146
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 200
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b15f2e8c693164ebb49063bfd92b65
+      internalID: 880972745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_147
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 192
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c431e093237e446a30594c4492c60e
+      internalID: 786174395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_150
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 192
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e36a298efdbcb47835824de0078f41
+      internalID: -1126123711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_153
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 184
+        width: 8
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59565cea79b596649ab203b49dedc5a4
+      internalID: -1106135454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_154
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 176
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dd52d47abc421642a60abcd5d4f8672
+      internalID: -1224249365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_155
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 168
+        width: 8
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc7579b8883e1047a2f9bc1138db2df
+      internalID: 39918359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_159
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d479629ae37ee04589ec618131773dc
+      internalID: 2077141309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_160
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 192
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e2302f70a667849bdffa51e6663476
+      internalID: 84160888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_161
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 192
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ea53c10874f4f49a2db1b65e4af231
+      internalID: -875581871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_162
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 192
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3005a0a156e3d1640ac1a0a95af2a5ab
+      internalID: -1891841897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_163
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2bc34c730961764e8d09972cdc3e700
+      internalID: 1623486747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_164
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 192
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff60a99cf6b4fbf439bd2d9e14d51df2
+      internalID: 984144946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_165
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 192
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6904b823bf6d6141849f1c7f6591415
+      internalID: -1727462286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_179
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5061dfea1a56c5b4da183be5e5b567e7
+      internalID: -553970889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_180
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f60609c79378ab478d48b1381993fc3
+      internalID: 1360384761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_181
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97fe4142908b0884eb0672942b2fe774
+      internalID: -834205272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_182
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69f439b9bb22d84da83d1d68d89e0a8
+      internalID: 2102694958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_183
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c009a58816245b443bd735cb55f2b991
+      internalID: 972166327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_184
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e1670730c56c7448e55beff7f35248
+      internalID: -149568013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_185
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cbbcb6ac22ffa249b2436311c8da280
+      internalID: 329225485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_186
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb1eca456c5048469bc39cdce3dc26d
+      internalID: 743759518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_187
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 184
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df0d9c10f7e6ab34ba7fb353e52c9335
+      internalID: -82072481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_207
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 175
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71279bfd8dc50543b3f4682e2c29c94
+      internalID: 910183880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_236
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 160
+        width: 40
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18626099db6b8244a79f3b4f44246b2
+      internalID: -1050576316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_244
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 160
+        width: 8
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7604dab3fca409045a2bfb9ee49774f8
+      internalID: 2027166595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_245
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75da7c6597e18cf41b7afb4f652472f2
+      internalID: 933661129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_248
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 152
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca6631f06e1c9b46bc9a0bd1c5641c3
+      internalID: 846959691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_250
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 152
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c816170d045a2942b0960b8626eb4b6
+      internalID: 925186317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_252
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 144
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f32500fafd2ae044b4805e51c84faeb
+      internalID: -1475454302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_253
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083db046912c9f940b495b52dc80cc94
+      internalID: 281941820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_254
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 144
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849270f379334184c8b2ba494b033a70
+      internalID: -615805945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_257
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 152
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0eecbc33be1bf94da306aa88b65a5bd
+      internalID: 924936104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_261
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 136
+        width: 56
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e54b1f24a68c64b9ae1b2eafaffa7a
+      internalID: -797352865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_292
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 128
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 110cdab55c64270478df71dc92f0b353
+      internalID: -715551590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_300
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5077e3d31a7f2cc4b970fb72b0166125
+      internalID: -1634063948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_303
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21392e275b48b654a88ebae918ccf489
+      internalID: 679549188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_304
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a782e9a8d15fc1459b7007695727fe0
+      internalID: -1376049552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_305
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 128
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf2fdd909565ff45a1b471c2c6ba557
+      internalID: -685982903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_313
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 128
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13b1d7d073fbcf143919abd97efac757
+      internalID: -2143466246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heartrootbasin-spritesheet 1_317
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 128
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b94b2f168c3b9e4a94c893d8f03c92c
+      internalID: 269775873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 11fb6e40ab21a5943bf71e809b7b0e36
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":8.0,"y":8.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":1,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      heartrootbasin-spritesheet 1_0: 5730199476619560992
+      heartrootbasin-spritesheet 1_1: -5172049176293559183
+      heartrootbasin-spritesheet 1_10: -6344471099126636177
+      heartrootbasin-spritesheet 1_100: 57834200
+      heartrootbasin-spritesheet 1_101: 45898679
+      heartrootbasin-spritesheet 1_102: 1955036746
+      heartrootbasin-spritesheet 1_103: -1853571554
+      heartrootbasin-spritesheet 1_104: -20683198
+      heartrootbasin-spritesheet 1_105: 1641403418
+      heartrootbasin-spritesheet 1_106: 691230617
+      heartrootbasin-spritesheet 1_107: -520814799
+      heartrootbasin-spritesheet 1_108: 1692678967
+      heartrootbasin-spritesheet 1_109: 1800965201
+      heartrootbasin-spritesheet 1_11: 8132532753783285083
+      heartrootbasin-spritesheet 1_110: -760164459
+      heartrootbasin-spritesheet 1_111: 330170735
+      heartrootbasin-spritesheet 1_112: -380708738
+      heartrootbasin-spritesheet 1_113: -514948270
+      heartrootbasin-spritesheet 1_114: 1999341506
+      heartrootbasin-spritesheet 1_115: -1987488175
+      heartrootbasin-spritesheet 1_116: -1660604438
+      heartrootbasin-spritesheet 1_117: 897217705
+      heartrootbasin-spritesheet 1_118: -486822669
+      heartrootbasin-spritesheet 1_119: -537544266
+      heartrootbasin-spritesheet 1_12: -9066365600654055622
+      heartrootbasin-spritesheet 1_120: -247101486
+      heartrootbasin-spritesheet 1_121: -427168803
+      heartrootbasin-spritesheet 1_122: 225318133
+      heartrootbasin-spritesheet 1_123: 1864942224
+      heartrootbasin-spritesheet 1_124: 1122843236
+      heartrootbasin-spritesheet 1_125: -857182895
+      heartrootbasin-spritesheet 1_126: -797359892
+      heartrootbasin-spritesheet 1_127: -775144035
+      heartrootbasin-spritesheet 1_128: 480849461
+      heartrootbasin-spritesheet 1_129: -1058227541
+      heartrootbasin-spritesheet 1_13: 1386087106177797113
+      heartrootbasin-spritesheet 1_130: 118964084
+      heartrootbasin-spritesheet 1_131: -1152549248
+      heartrootbasin-spritesheet 1_132: 1469278232
+      heartrootbasin-spritesheet 1_133: 286802117
+      heartrootbasin-spritesheet 1_134: -870497930
+      heartrootbasin-spritesheet 1_135: -2050387218
+      heartrootbasin-spritesheet 1_136: 1676491799
+      heartrootbasin-spritesheet 1_137: 1885556331
+      heartrootbasin-spritesheet 1_138: 1708198270
+      heartrootbasin-spritesheet 1_139: 943055989
+      heartrootbasin-spritesheet 1_14: -8574337350248087132
+      heartrootbasin-spritesheet 1_140: 2081037913
+      heartrootbasin-spritesheet 1_141: 1270254944
+      heartrootbasin-spritesheet 1_142: -620627973
+      heartrootbasin-spritesheet 1_143: 201772603
+      heartrootbasin-spritesheet 1_144: -1264741975
+      heartrootbasin-spritesheet 1_145: -1523320991
+      heartrootbasin-spritesheet 1_146: 880972745
+      heartrootbasin-spritesheet 1_147: 786174395
+      heartrootbasin-spritesheet 1_148: 2060264377
+      heartrootbasin-spritesheet 1_149: 933173590
+      heartrootbasin-spritesheet 1_15: 5303799432801423342
+      heartrootbasin-spritesheet 1_150: -1126123711
+      heartrootbasin-spritesheet 1_151: 1560338584
+      heartrootbasin-spritesheet 1_152: 733697276
+      heartrootbasin-spritesheet 1_153: -1106135454
+      heartrootbasin-spritesheet 1_154: -1224249365
+      heartrootbasin-spritesheet 1_155: 39918359
+      heartrootbasin-spritesheet 1_156: -1751400631
+      heartrootbasin-spritesheet 1_157: 1426420304
+      heartrootbasin-spritesheet 1_158: -1241064213
+      heartrootbasin-spritesheet 1_159: 2077141309
+      heartrootbasin-spritesheet 1_16: -8928389783189501481
+      heartrootbasin-spritesheet 1_160: 84160888
+      heartrootbasin-spritesheet 1_161: -875581871
+      heartrootbasin-spritesheet 1_162: -1891841897
+      heartrootbasin-spritesheet 1_163: 1623486747
+      heartrootbasin-spritesheet 1_164: 984144946
+      heartrootbasin-spritesheet 1_165: -1727462286
+      heartrootbasin-spritesheet 1_166: -1310902438
+      heartrootbasin-spritesheet 1_167: 1928371145
+      heartrootbasin-spritesheet 1_168: -2072656717
+      heartrootbasin-spritesheet 1_169: 1259311990
+      heartrootbasin-spritesheet 1_17: -2627709034415889147
+      heartrootbasin-spritesheet 1_170: -147819945
+      heartrootbasin-spritesheet 1_171: 1733747722
+      heartrootbasin-spritesheet 1_172: 251356796
+      heartrootbasin-spritesheet 1_173: -974440202
+      heartrootbasin-spritesheet 1_174: -469699102
+      heartrootbasin-spritesheet 1_175: 1315638667
+      heartrootbasin-spritesheet 1_176: -194382775
+      heartrootbasin-spritesheet 1_177: -2008470563
+      heartrootbasin-spritesheet 1_178: -1238440864
+      heartrootbasin-spritesheet 1_179: -553970889
+      heartrootbasin-spritesheet 1_18: 5149623810634246793
+      heartrootbasin-spritesheet 1_180: 1360384761
+      heartrootbasin-spritesheet 1_181: -834205272
+      heartrootbasin-spritesheet 1_182: 2102694958
+      heartrootbasin-spritesheet 1_183: 972166327
+      heartrootbasin-spritesheet 1_184: -149568013
+      heartrootbasin-spritesheet 1_185: 329225485
+      heartrootbasin-spritesheet 1_186: 743759518
+      heartrootbasin-spritesheet 1_187: -82072481
+      heartrootbasin-spritesheet 1_188: 1511120707
+      heartrootbasin-spritesheet 1_189: 738975185
+      heartrootbasin-spritesheet 1_19: 6635669343796659789
+      heartrootbasin-spritesheet 1_190: 1838330015
+      heartrootbasin-spritesheet 1_191: -790040080
+      heartrootbasin-spritesheet 1_192: 1501832565
+      heartrootbasin-spritesheet 1_193: 1004691679
+      heartrootbasin-spritesheet 1_194: -1649723785
+      heartrootbasin-spritesheet 1_195: 684854524
+      heartrootbasin-spritesheet 1_196: -941107067
+      heartrootbasin-spritesheet 1_197: -1854162403
+      heartrootbasin-spritesheet 1_198: 1079607044
+      heartrootbasin-spritesheet 1_199: -130848094
+      heartrootbasin-spritesheet 1_2: 3979513617692879195
+      heartrootbasin-spritesheet 1_20: 739390583
+      heartrootbasin-spritesheet 1_200: 1800816255
+      heartrootbasin-spritesheet 1_201: 1574027541
+      heartrootbasin-spritesheet 1_202: 2136781301
+      heartrootbasin-spritesheet 1_203: 1909273437
+      heartrootbasin-spritesheet 1_204: -65601414
+      heartrootbasin-spritesheet 1_205: 1378031802
+      heartrootbasin-spritesheet 1_206: 1903791800
+      heartrootbasin-spritesheet 1_207: 910183880
+      heartrootbasin-spritesheet 1_208: -912782374
+      heartrootbasin-spritesheet 1_209: 1051362859
+      heartrootbasin-spritesheet 1_21: 239997276
+      heartrootbasin-spritesheet 1_210: 204544547
+      heartrootbasin-spritesheet 1_211: 278411489
+      heartrootbasin-spritesheet 1_212: -837627670
+      heartrootbasin-spritesheet 1_213: -614989841
+      heartrootbasin-spritesheet 1_214: 1787454306
+      heartrootbasin-spritesheet 1_215: 2123250333
+      heartrootbasin-spritesheet 1_216: 929975193
+      heartrootbasin-spritesheet 1_217: 757510747
+      heartrootbasin-spritesheet 1_218: 393764711
+      heartrootbasin-spritesheet 1_219: 690155749
+      heartrootbasin-spritesheet 1_22: 1728436529
+      heartrootbasin-spritesheet 1_220: 30363958
+      heartrootbasin-spritesheet 1_221: 708381362
+      heartrootbasin-spritesheet 1_222: -1345697296
+      heartrootbasin-spritesheet 1_223: 630204606
+      heartrootbasin-spritesheet 1_224: 1429364677
+      heartrootbasin-spritesheet 1_225: 2032070458
+      heartrootbasin-spritesheet 1_226: 1809030797
+      heartrootbasin-spritesheet 1_227: -1760736293
+      heartrootbasin-spritesheet 1_228: 788014641
+      heartrootbasin-spritesheet 1_229: 1670681429
+      heartrootbasin-spritesheet 1_23: 2120322834
+      heartrootbasin-spritesheet 1_230: -761220640
+      heartrootbasin-spritesheet 1_231: 872560562
+      heartrootbasin-spritesheet 1_232: 2053888060
+      heartrootbasin-spritesheet 1_233: -14143102
+      heartrootbasin-spritesheet 1_234: 571362762
+      heartrootbasin-spritesheet 1_235: 1489056386
+      heartrootbasin-spritesheet 1_236: -1050576316
+      heartrootbasin-spritesheet 1_237: -36239858
+      heartrootbasin-spritesheet 1_238: -1129928834
+      heartrootbasin-spritesheet 1_239: -1025617691
+      heartrootbasin-spritesheet 1_24: 1152311561
+      heartrootbasin-spritesheet 1_240: 768561644
+      heartrootbasin-spritesheet 1_241: -179924288
+      heartrootbasin-spritesheet 1_242: 124653478
+      heartrootbasin-spritesheet 1_243: -1686268021
+      heartrootbasin-spritesheet 1_244: 2027166595
+      heartrootbasin-spritesheet 1_245: 933661129
+      heartrootbasin-spritesheet 1_246: -156416385
+      heartrootbasin-spritesheet 1_247: 1050098298
+      heartrootbasin-spritesheet 1_248: 846959691
+      heartrootbasin-spritesheet 1_249: 1052502944
+      heartrootbasin-spritesheet 1_25: -521547400
+      heartrootbasin-spritesheet 1_250: 925186317
+      heartrootbasin-spritesheet 1_251: -491138002
+      heartrootbasin-spritesheet 1_252: -1475454302
+      heartrootbasin-spritesheet 1_253: 281941820
+      heartrootbasin-spritesheet 1_254: -615805945
+      heartrootbasin-spritesheet 1_255: 1279462344
+      heartrootbasin-spritesheet 1_256: 1729025724
+      heartrootbasin-spritesheet 1_257: 924936104
+      heartrootbasin-spritesheet 1_258: -2034968052
+      heartrootbasin-spritesheet 1_259: -41103110
+      heartrootbasin-spritesheet 1_26: 2111911265
+      heartrootbasin-spritesheet 1_260: 509520606
+      heartrootbasin-spritesheet 1_261: -797352865
+      heartrootbasin-spritesheet 1_262: -2033603523
+      heartrootbasin-spritesheet 1_263: 689767879
+      heartrootbasin-spritesheet 1_264: 2114060587
+      heartrootbasin-spritesheet 1_265: 205328986
+      heartrootbasin-spritesheet 1_266: -1038192787
+      heartrootbasin-spritesheet 1_267: -1202585808
+      heartrootbasin-spritesheet 1_268: 229021778
+      heartrootbasin-spritesheet 1_269: 158900472
+      heartrootbasin-spritesheet 1_27: 684839473
+      heartrootbasin-spritesheet 1_270: -1641050827
+      heartrootbasin-spritesheet 1_271: 392618318
+      heartrootbasin-spritesheet 1_272: -1612321940
+      heartrootbasin-spritesheet 1_273: 1084790277
+      heartrootbasin-spritesheet 1_274: -504901813
+      heartrootbasin-spritesheet 1_275: -835566447
+      heartrootbasin-spritesheet 1_276: -1071109466
+      heartrootbasin-spritesheet 1_277: -743646558
+      heartrootbasin-spritesheet 1_278: -2046953750
+      heartrootbasin-spritesheet 1_279: 2129885268
+      heartrootbasin-spritesheet 1_28: 343154401
+      heartrootbasin-spritesheet 1_280: -677351631
+      heartrootbasin-spritesheet 1_281: 1883039259
+      heartrootbasin-spritesheet 1_282: 428816822
+      heartrootbasin-spritesheet 1_283: 1221682725
+      heartrootbasin-spritesheet 1_284: 562671909
+      heartrootbasin-spritesheet 1_285: -2045526461
+      heartrootbasin-spritesheet 1_286: 658729094
+      heartrootbasin-spritesheet 1_287: -1615213841
+      heartrootbasin-spritesheet 1_288: 1183611575
+      heartrootbasin-spritesheet 1_289: -543592645
+      heartrootbasin-spritesheet 1_29: 942742415
+      heartrootbasin-spritesheet 1_290: 667718926
+      heartrootbasin-spritesheet 1_291: -62005714
+      heartrootbasin-spritesheet 1_292: -715551590
+      heartrootbasin-spritesheet 1_293: 1154330625
+      heartrootbasin-spritesheet 1_294: -960687422
+      heartrootbasin-spritesheet 1_295: -1141514638
+      heartrootbasin-spritesheet 1_296: -1564207975
+      heartrootbasin-spritesheet 1_297: -124651022
+      heartrootbasin-spritesheet 1_298: 2014598235
+      heartrootbasin-spritesheet 1_299: 1710124723
+      heartrootbasin-spritesheet 1_3: -3072477984387959918
+      heartrootbasin-spritesheet 1_30: 1545175492
+      heartrootbasin-spritesheet 1_300: -1634063948
+      heartrootbasin-spritesheet 1_301: -479329095
+      heartrootbasin-spritesheet 1_302: 1362290144
+      heartrootbasin-spritesheet 1_303: 679549188
+      heartrootbasin-spritesheet 1_304: -1376049552
+      heartrootbasin-spritesheet 1_305: -685982903
+      heartrootbasin-spritesheet 1_306: -670568728
+      heartrootbasin-spritesheet 1_307: -222731283
+      heartrootbasin-spritesheet 1_308: 515258738
+      heartrootbasin-spritesheet 1_309: -519057241
+      heartrootbasin-spritesheet 1_31: -1335868094
+      heartrootbasin-spritesheet 1_310: 246873915
+      heartrootbasin-spritesheet 1_311: 1473668697
+      heartrootbasin-spritesheet 1_312: -1595832360
+      heartrootbasin-spritesheet 1_313: -2143466246
+      heartrootbasin-spritesheet 1_314: 337970055
+      heartrootbasin-spritesheet 1_315: 995919730
+      heartrootbasin-spritesheet 1_316: 1761543191
+      heartrootbasin-spritesheet 1_317: 269775873
+      heartrootbasin-spritesheet 1_318: 1473243368
+      heartrootbasin-spritesheet 1_319: -143589004
+      heartrootbasin-spritesheet 1_32: 86040013
+      heartrootbasin-spritesheet 1_320: 319010209
+      heartrootbasin-spritesheet 1_33: 1514078721
+      heartrootbasin-spritesheet 1_34: -888799269
+      heartrootbasin-spritesheet 1_35: 2074340731
+      heartrootbasin-spritesheet 1_36: 872801953
+      heartrootbasin-spritesheet 1_37: 1661272573
+      heartrootbasin-spritesheet 1_38: 1018837688
+      heartrootbasin-spritesheet 1_39: 910466079
+      heartrootbasin-spritesheet 1_4: 8039836028257402856
+      heartrootbasin-spritesheet 1_40: -896154834
+      heartrootbasin-spritesheet 1_41: -1095904633
+      heartrootbasin-spritesheet 1_42: 647270005
+      heartrootbasin-spritesheet 1_43: 1962123791
+      heartrootbasin-spritesheet 1_44: 1895635825
+      heartrootbasin-spritesheet 1_45: -404027622
+      heartrootbasin-spritesheet 1_46: -631896306
+      heartrootbasin-spritesheet 1_47: -1263981215
+      heartrootbasin-spritesheet 1_48: 1019962151
+      heartrootbasin-spritesheet 1_49: 1350888554
+      heartrootbasin-spritesheet 1_5: -6622864938673080284
+      heartrootbasin-spritesheet 1_50: 1349404825
+      heartrootbasin-spritesheet 1_51: 438653852
+      heartrootbasin-spritesheet 1_52: -489127488
+      heartrootbasin-spritesheet 1_53: 1863020157
+      heartrootbasin-spritesheet 1_54: -58518185
+      heartrootbasin-spritesheet 1_55: -495995018
+      heartrootbasin-spritesheet 1_56: 294513139
+      heartrootbasin-spritesheet 1_57: 443762726
+      heartrootbasin-spritesheet 1_58: 1184490958
+      heartrootbasin-spritesheet 1_59: 1432682623
+      heartrootbasin-spritesheet 1_6: -1332291091715972404
+      heartrootbasin-spritesheet 1_60: 2087030808
+      heartrootbasin-spritesheet 1_61: -564648993
+      heartrootbasin-spritesheet 1_62: 2130666779
+      heartrootbasin-spritesheet 1_63: -2022910872
+      heartrootbasin-spritesheet 1_64: -1074779796
+      heartrootbasin-spritesheet 1_65: -541760110
+      heartrootbasin-spritesheet 1_66: -1056540655
+      heartrootbasin-spritesheet 1_67: -50143678
+      heartrootbasin-spritesheet 1_68: 1380857279
+      heartrootbasin-spritesheet 1_69: -1188644275
+      heartrootbasin-spritesheet 1_7: -3487904813646111557
+      heartrootbasin-spritesheet 1_70: -645577475
+      heartrootbasin-spritesheet 1_71: -1046395817
+      heartrootbasin-spritesheet 1_72: 549058465
+      heartrootbasin-spritesheet 1_73: 809931420
+      heartrootbasin-spritesheet 1_74: 895369502
+      heartrootbasin-spritesheet 1_75: 726312235
+      heartrootbasin-spritesheet 1_76: -675880593
+      heartrootbasin-spritesheet 1_77: -1032865269
+      heartrootbasin-spritesheet 1_78: 6639686
+      heartrootbasin-spritesheet 1_79: 1746973248
+      heartrootbasin-spritesheet 1_8: 8709611367096378018
+      heartrootbasin-spritesheet 1_80: -1371022338
+      heartrootbasin-spritesheet 1_81: -1753284904
+      heartrootbasin-spritesheet 1_82: -648830900
+      heartrootbasin-spritesheet 1_83: 1385612622
+      heartrootbasin-spritesheet 1_84: -1415137442
+      heartrootbasin-spritesheet 1_85: 231645565
+      heartrootbasin-spritesheet 1_86: 943377217
+      heartrootbasin-spritesheet 1_87: 20714100
+      heartrootbasin-spritesheet 1_88: 66463054
+      heartrootbasin-spritesheet 1_89: 1896420578
+      heartrootbasin-spritesheet 1_9: 4905068537499331330
+      heartrootbasin-spritesheet 1_90: -1562067513
+      heartrootbasin-spritesheet 1_91: -1021068120
+      heartrootbasin-spritesheet 1_92: -630184387
+      heartrootbasin-spritesheet 1_93: -610200671
+      heartrootbasin-spritesheet 1_94: -676038217
+      heartrootbasin-spritesheet 1_95: 1752674394
+      heartrootbasin-spritesheet 1_96: -844846569
+      heartrootbasin-spritesheet 1_97: -56111345
+      heartrootbasin-spritesheet 1_98: 1091119834
+      heartrootbasin-spritesheet 1_99: -567407488
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
